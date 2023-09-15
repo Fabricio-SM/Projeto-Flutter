@@ -13,8 +13,7 @@ class PetCard extends StatelessWidget {
       ),
       elevation: 90,
       child: Container(
-        width: 70,
-        height: 150,
+        height: 220,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Color.fromARGB(0, 240, 213, 213),

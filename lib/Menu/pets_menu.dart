@@ -66,17 +66,58 @@ class _PetsMenuState extends State<PetsMenu> {
                     )
                   ]),
                 ),
-                SizedBox(height: 200),
+                SizedBox(height: 100),
                 Text(
                   "Cats",
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  height: 500,
                   width: 1080,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: Color.fromARGB(236, 247, 239, 239),
                       borderRadius: BorderRadius.circular(30)),
+                  child: Column(children: [
+                    ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              bottom: 40.0), // Margem vertical entre os cards
+                          child: PetCard(),
+                        ),
+                      ],
+                    )
+                  ]),
                 ),
               ],
             ),
