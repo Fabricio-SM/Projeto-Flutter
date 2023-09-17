@@ -1,17 +1,18 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:trabalho_pdm/Card/Stats.dart';
 import 'package:trabalho_pdm/Card/card.dart';
 import 'package:trabalho_pdm/Pet/pet.dart';
 
-class PetsMenu extends StatefulWidget {
-  const PetsMenu({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<PetsMenu> createState() => _PetsMenuState();
+  State<Home> createState() => _PetsMenuState();
 }
 
-class _PetsMenuState extends State<PetsMenu> {
+class _PetsMenuState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _PetsMenuState extends State<PetsMenu> {
                     child: Row(
                       children: [
                         Text(
-                          "My pets",
+                          "Home",
                           style: TextStyle(
                               fontSize: 90,
                               fontWeight: FontWeight.bold,
@@ -39,7 +40,7 @@ class _PetsMenuState extends State<PetsMenu> {
                     )),
                 SizedBox(height: 90),
                 Text(
-                  "Dogs",
+                  "Dashboard",
                   style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.start,
                 ),
@@ -67,7 +68,7 @@ class _PetsMenuState extends State<PetsMenu> {
                 ),
                 SizedBox(height: 100),
                 Text(
-                  "Cats",
+                  "Stats",
                   style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
                 ),
                 Container(
@@ -82,31 +83,7 @@ class _PetsMenuState extends State<PetsMenu> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
+                          child: StatsCard(),
                         ),
                       ],
                     )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_pdm/Menu/home.dart';
 import 'package:trabalho_pdm/Menu/pets_menu.dart';
 import 'package:trabalho_pdm/Profile/profile.dart';
 
@@ -12,10 +13,8 @@ class TabsPage extends StatelessWidget {
       child: Scaffold(
         body: TabBarView(
           children: [
-            Container(
-              color: Colors.blue,
-            ),
-            PetsMenu(),
+            Home(),
+            const PetsMenu(),
             MyProfile(),
           ],
         ),

@@ -80,7 +80,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           image: AssetImage(
-                            'img/a2.jpg',
+                            'img/perfil.jpg',
                           ),
                           fit: BoxFit.cover,
                         ),
@@ -98,7 +98,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             Container(
-                              height: 70,
+                              height: 90,
                               margin: EdgeInsets.only(
                                 bottom: 70,
                                 top: 10,
@@ -112,7 +112,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                       vertical: 20.0, horizontal: 30.0),
                                   hintText: 'Full name',
                                   hintStyle: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 35,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
@@ -135,7 +135,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             Container(
-                              height: 70,
+                              height: 90,
                               margin: EdgeInsets.only(
                                 bottom: 70,
                                 top: 10,
@@ -149,7 +149,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                       vertical: 20.0, horizontal: 30.0),
                                   hintText: 'Email adress',
                                   hintStyle: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 35,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
@@ -172,7 +172,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             Container(
-                              height: 70,
+                              height: 90,
                               margin: EdgeInsets.only(
                                 bottom: 70,
                                 top: 10,
@@ -186,7 +186,7 @@ class _MyFormScreenState extends State<MyFormScreen> {
                                       vertical: 20.0, horizontal: 30.0),
                                   hintText: 'Password',
                                   hintStyle: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 35,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
