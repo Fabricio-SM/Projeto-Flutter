@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class AppStyles {
   TextStyle fonte1 = TextStyle(
-    fontSize: 20, fontWeight: FontWeight.bold,);
-  
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
 
   TextStyle fonte2 = TextStyle(
     fontSize: 18,
@@ -24,7 +25,6 @@ class AppStyles {
   );
 
   InputDecoration inputDecoration = InputDecoration(
-    border: OutlineInputBorder(),
     contentPadding: EdgeInsets.all(12),
   );
 }

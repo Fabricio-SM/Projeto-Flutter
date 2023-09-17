@@ -47,7 +47,7 @@ class _MyProfile extends State<MyProfile> {
                     ),
                     image: DecorationImage(
                       image: AssetImage(
-                        'img/perfil.jpg',
+                        'img/a2.jpg',
                       ),
                     ),
                   ),
