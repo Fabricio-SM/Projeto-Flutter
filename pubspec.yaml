@@ -57,6 +57,7 @@ flutter:
 
   assets:
     - img/perfil.jpg
+    - img/a.jpg
   
   # To add assets to your application, add an assets section, like this:
   # assets:
