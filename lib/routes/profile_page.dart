@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/Tabs/tabs.dart';
+import 'package:trabalho_pdm/routes/tabs_page.dart';
 
 class MyProfile extends StatefulWidget {
   @override

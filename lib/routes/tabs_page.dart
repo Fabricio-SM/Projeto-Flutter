@@ -1,6 +1,8 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/Menu/pets_menu.dart';
-import 'package:trabalho_pdm/Profile/profile.dart';
+import 'package:trabalho_pdm/routes/pets_menu_page.dart';
+import 'package:trabalho_pdm/routes/profile_page.dart';
 
 class TabsPage extends StatelessWidget {
   const TabsPage({Key? key}); // Remova o "super" aqui
@@ -20,7 +22,7 @@ class TabsPage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: Container(
-          height: 150,
+          height: 55,
           decoration: const BoxDecoration(
             color: Color.fromARGB(151, 121, 184, 126),
           ),
@@ -34,7 +36,7 @@ class TabsPage extends StatelessWidget {
                 child: Tab(
                   icon: Icon(
                     Icons.home,
-                    size: 60,
+                    size: 30,
                   ),
                 ),
               ),
@@ -44,7 +46,7 @@ class TabsPage extends StatelessWidget {
                 child: Tab(
                   icon: Icon(
                     Icons.pets,
-                    size: 60,
+                    size: 30,
                   ),
                 ),
               ),
@@ -54,7 +56,7 @@ class TabsPage extends StatelessWidget {
                 child: Tab(
                   icon: Icon(
                     Icons.account_box,
-                    size: 60,
+                    size: 30,
                   ),
                 ),
               ),
