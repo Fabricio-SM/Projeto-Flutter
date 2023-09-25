@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:trabalho_pdm/routes.dart';
 import 'package:trabalho_pdm/routes/login_page.dart';
+import 'package:provider/provider.dart';
+import 'package:trabalho_pdm/widgets/perfil_cache.dart';
+
 
 void main() {
   runApp(PetApp());
@@ -13,15 +16,20 @@ class PetApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateTitle: (context) => "Pet App",
-      initialRoute: RouteGenerator.homePage,
-      onGenerateRoute: RouteGenerator.generateRoute,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.cyan,
+    return ChangeNotifierProvider(
+      create: (_) => Cache(), 
+      
+
+      child: MaterialApp(
+        onGenerateTitle: (context) => "Pet App",
+        initialRoute: RouteGenerator.homePage,
+        onGenerateRoute: RouteGenerator.generateRoute,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.cyan,
+        ),
+        home: FormLogin(),
       ),
-      home: FormLogin(),
     );
   }
 }
