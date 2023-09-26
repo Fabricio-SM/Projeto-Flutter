@@ -99,8 +99,8 @@ class _PetsMenuState extends State<PetsMenu> {
         ),
       ),
       floatingActionButton: Container(
-        width: 100.0,
-        height: 100.0,
+        width: 70.0,
+        height: 70.0,
         margin: EdgeInsets.only(bottom: 59),
         child: FloatingActionButton(
           onPressed: () => Navigator.push(
@@ -110,7 +110,7 @@ class _PetsMenuState extends State<PetsMenu> {
           tooltip: 'Add Pet',
           child: Icon(
             Icons.add,
-            size: 70.0,
+            size: 50.0,
             color: Colors.white,
           ),
         ),

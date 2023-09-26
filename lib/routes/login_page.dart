@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/routes/pet_page.dart';
 import '../widgets/Card/Stats.dart';
 import '../widgets/Card/card.dart';
 
@@ -112,23 +111,23 @@ class _PetsMenuState extends State<Home> {
           ),
         ),
       ),
-      floatingActionButton: Container(
-        width: 70.0,
-        height: 70.0,
-        margin: const EdgeInsets.only(bottom: 20),
-        child: FloatingActionButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const PetPage()),
-          ),
-          tooltip: 'Add Pet',
-          child: Icon(
-            Icons.add,
-            size: 40.0,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: Container(
+      //   width: 70.0,
+      //   height: 70.0,
+      //   margin: const EdgeInsets.only(bottom: 20),
+      //   child: FloatingActionButton(
+      //     onPressed: () => Navigator.push(
+      //       context,
+      //       MaterialPageRoute(builder: (context) => const PetPage()),
+      //     ),
+      //     tooltip: 'Add Pet',
+      //     child: Icon(
+      //       Icons.add,
+      //       size: 40.0,
+      //     ),
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
