@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:trabalho_pdm/routes/menu_page.dart';
 import 'package:trabalho_pdm/routes/pets_menu_page.dart';
 import 'package:trabalho_pdm/routes/profile_page.dart';
 
@@ -14,9 +15,7 @@ class TabsPage extends StatelessWidget {
       child: Scaffold(
         body: TabBarView(
           children: [
-            Container(
-              color: Colors.blue,
-            ),
+            Home(),
             PetsMenu(),
             MyProfile(),
           ],

@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/widgets/card.dart';
+import 'package:provider/provider.dart';
 import 'package:trabalho_pdm/routes/pet_page.dart';
+import 'package:trabalho_pdm/widgets/pet_cache.dart';
+
+import '../widgets/card.dart';
 
 class PetsMenu extends StatefulWidget {
   const PetsMenu({super.key});
@@ -14,37 +17,39 @@ class PetsMenu extends StatefulWidget {
 class _PetsMenuState extends State<PetsMenu> {
   @override
   Widget build(BuildContext context) {
+    return Consumer<PetCache>(
+      builder: (context, cache, _) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 233, 242, 248),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 70.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 60),
+                    margin: EdgeInsets.only(top: 20),
                     child: Row(
                       children: [
                         Text(
                           "My pets",
                           style: TextStyle(
-                              fontSize: 90,
+                              fontSize: 35,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'helvetica'),
                         ),
                       ],
                     )),
-                SizedBox(height: 90),
+                SizedBox(height: 20),
                 Text(
                   "Dogs",
-                  style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.start,
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 150),
+                  margin: EdgeInsets.only(bottom: 50, top: 10),
                   width: 1080,
                   decoration: BoxDecoration(
                       color: Color.fromARGB(236, 247, 239, 239),
@@ -54,24 +59,24 @@ class _PetsMenuState extends State<PetsMenu> {
                       shrinkWrap: true,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
+                          margin: EdgeInsets.only(bottom: 30.0),
                           child: PetCard(),
                         ),
                         Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
+                          margin: EdgeInsets.only(bottom: 30.0),
                           child: PetCard(),
                         ),
                       ],
                     )
                   ]),
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 50),
                 Text(
                   "Cats",
-                  style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 160),
+                  margin: EdgeInsets.only(bottom: 160, top: 10),
                   width: 1080,
                   decoration: BoxDecoration(
                       color: Color.fromARGB(236, 247, 239, 239),
@@ -81,31 +86,11 @@ class _PetsMenuState extends State<PetsMenu> {
                       shrinkWrap: true,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
+                          margin: EdgeInsets.only(bottom: 30.0),
                           child: PetCard(),
                         ),
                         Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
+                          margin: EdgeInsets.only(bottom: 30.0),
                           child: PetCard(),
                         ),
                       ],
@@ -118,8 +103,8 @@ class _PetsMenuState extends State<PetsMenu> {
         ),
       ),
       floatingActionButton: Container(
-        width: 100.0,
-        height: 100.0,
+        width: 70.0,
+        height: 70.0,
         margin: EdgeInsets.only(bottom: 59),
         child: FloatingActionButton(
           onPressed: () => Navigator.push(
@@ -129,12 +114,13 @@ class _PetsMenuState extends State<PetsMenu> {
           tooltip: 'Add Pet',
           child: Icon(
             Icons.add,
-            size: 70.0,
+            size: 50.0,
             color: Colors.white,
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );},
     );
   }
 }
