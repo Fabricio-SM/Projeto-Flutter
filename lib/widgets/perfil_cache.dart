@@ -8,16 +8,14 @@ class Cache extends ChangeNotifier {
   var _index = -1;
 
   final List<Pessoa> _login = [
-    //Pessoa("nome", "email", "senha"),
+    const Pessoa("nome", "email", "senha"),
   ];
-
 
   // Adiciona novos items na lista
   void addItem(String nome, String email, String senha) {
     _login.add(Pessoa(nome, email, senha));
     notifyListeners();
   }
-
 
   // Recupera o index do último elemento selecionado.
   int get index => _index;
@@ -31,5 +29,6 @@ class Cache extends ChangeNotifier {
     }
   }
 
-  UnmodifiableListView<Pessoa> get listPerfil => UnmodifiableListView<Pessoa>(_login);
+  UnmodifiableListView<Pessoa> get listPerfil =>
+      UnmodifiableListView<Pessoa>(_login);
 }

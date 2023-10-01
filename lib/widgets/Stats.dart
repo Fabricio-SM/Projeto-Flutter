@@ -49,7 +49,7 @@ class StatsCard extends StatelessWidget {
             ),
             SizedBox(
                 child: Icon(
-              Icons.fiber_pin_rounded,
+              Icons.hourglass_bottom,
               color: Colors.black,
               size: 100,
             )),
