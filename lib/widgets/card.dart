@@ -12,13 +12,14 @@ class PetCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.sizeOf(context);
     return Material(
       borderRadius: const BorderRadius.all(
         Radius.circular(20),
       ),
       elevation: 60,
       child: Container(
-        height: 100,
+        height: mediaQuery.height / 5,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Color.fromARGB(0, 240, 213, 213),
@@ -27,7 +28,8 @@ class PetCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              width: 60,
+              margin: EdgeInsets.only(right: 10),
+              width: mediaQuery.width / 4,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(

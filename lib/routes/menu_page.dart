@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:trabalho_pdm/widgets/pet_cache.dart';
 import '../widgets/Stats.dart';
 import '../widgets/card.dart';
-import 'package:trabalho_pdm/widgets/pet_cache.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key});

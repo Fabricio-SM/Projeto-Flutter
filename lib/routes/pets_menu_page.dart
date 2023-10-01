@@ -17,6 +17,8 @@ class PetsMenu extends StatefulWidget {
 class _PetsMenuState extends State<PetsMenu> {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.sizeOf(context);
+    final margin = mediaQuery / 8;
     return Consumer<PetCache>(
       builder: (context, cache, _) {
         return Scaffold(
@@ -24,7 +26,7 @@ class _PetsMenuState extends State<PetsMenu> {
           body: SingleChildScrollView(
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +53,6 @@ class _PetsMenuState extends State<PetsMenu> {
                     ),
                     Container(
                       margin: EdgeInsets.only(bottom: 50, top: 10),
-                      width: 1080,
                       decoration: BoxDecoration(
                         color: Color.fromARGB(236, 247, 239, 239),
                         borderRadius: BorderRadius.circular(30),
