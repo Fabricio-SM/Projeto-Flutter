@@ -19,108 +19,115 @@ class _PetsMenuState extends State<PetsMenu> {
   Widget build(BuildContext context) {
     return Consumer<PetCache>(
       builder: (context, cache, _) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 233, 242, 248),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: Row(
-                      children: [
-                        Text(
-                          "My pets",
-                          style: TextStyle(
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'helvetica'),
+        return Scaffold(
+          backgroundColor: Color.fromARGB(255, 233, 242, 248),
+          body: SingleChildScrollView(
+            child: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        margin: EdgeInsets.only(top: 20),
+                        child: Row(
+                          children: [
+                            Text(
+                              "My pets",
+                              style: TextStyle(
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'helvetica'),
+                            ),
+                          ],
+                        )),
+                    SizedBox(height: 20),
+                    Text(
+                      "Dogs",
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.start,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 50, top: 10),
+                      width: 1080,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(236, 247, 239, 239),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: cache.listPet.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 30),
+                            child: PetCard(
+                              cache.listPet[index].nome,
+                              pets: cache.listPet,
+                              index: index,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 50),
+                    Text(
+                      "Cats",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 160, top: 10),
+                      width: 1080,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(236, 247, 239, 239),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Column(children: [
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: cache.listPet.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 30),
+                              child: PetCard(
+                                cache.listPet[index].nome,
+                                pets: cache.listPet,
+                                index: index,
+                              ),
+                            );
+                          },
                         ),
-                      ],
-                    )),
-                SizedBox(height: 20),
-                Text(
-                  "Dogs",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.start,
+                      ]),
+                    ),
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 50, top: 10),
-                  width: 1080,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(236, 247, 239, 239),
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Column(children: [
-                    ListView(
-                      shrinkWrap: true,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 30.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 30.0),
-                          child: PetCard(),
-                        ),
-                      ],
-                    )
-                  ]),
-                ),
-                SizedBox(height: 50),
-                Text(
-                  "Cats",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 160, top: 10),
-                  width: 1080,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(236, 247, 239, 239),
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Column(children: [
-                    ListView(
-                      shrinkWrap: true,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 30.0),
-                          child: PetCard(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 30.0),
-                          child: PetCard(),
-                        ),
-                      ],
-                    )
-                  ]),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-      floatingActionButton: Container(
-        width: 70.0,
-        height: 70.0,
-        margin: EdgeInsets.only(bottom: 59),
-        child: FloatingActionButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const PetPage()),
+          floatingActionButton: Container(
+            width: 70.0,
+            height: 70.0,
+            margin: EdgeInsets.only(bottom: 59),
+            child: FloatingActionButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PetPage()),
+              ),
+              tooltip: 'Add Pet',
+              child: Icon(
+                Icons.add,
+                size: 50.0,
+                color: Colors.white,
+              ),
+            ),
           ),
-          tooltip: 'Add Pet',
-          child: Icon(
-            Icons.add,
-            size: 50.0,
-            color: Colors.white,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );},
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+        );
+      },
     );
   }
 }

@@ -19,8 +19,8 @@ class _MyPetPageState extends State<PetPage> {
   final _tipoController = TextEditingController();
   final _namePController = TextEditingController();
   final _raceController = TextEditingController();
-  String _namePet = '';
-  String _race = '';
+  final String _namePet = '';
+  final String _race = '';
   final String _birthday = '';
 
   @override
@@ -85,13 +85,13 @@ class _MyPetPageState extends State<PetPage> {
                                 children: [
                                   ElevatedButton(
                                     onPressed: () {
-                                      _tipoController.text = "Dog";
+                                      _tipoController.text = 'Cão';
                                     },
                                     child: Text("Dog"),
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
-                                      _tipoController.text = "Cat";
+                                      _tipoController.text = 'Gato';
                                     },
                                     child: Text("Cat"),
                                   ),
@@ -110,7 +110,7 @@ class _MyPetPageState extends State<PetPage> {
                           return null;
                         },
                         onSaved: (value) {
-                          _namePet = value!;
+                          _namePController.text = value!;
                         },
                       ),
                       TextFormField(
@@ -119,11 +119,10 @@ class _MyPetPageState extends State<PetPage> {
                           if (value!.isEmpty) {
                             return 'Please enter an race';
                           }
-                          // Add more email validation logic if needed
                           return null;
                         },
                         onSaved: (value) {
-                          _race = value!;
+                          _raceController.text = value!;
                         },
                       ),
                       TextField(
@@ -168,14 +167,16 @@ class _MyPetPageState extends State<PetPage> {
                             _formKey.currentState!.save();
                             final name = _namePController.text;
                             final race = _raceController.text;
-                            final dataNasc = DateTime.parse(dateinput.text);
+                            final dataNasc = dateinput.text;
 
                             cache.addPet(
                                 _tipoController.text, name, race, dataNasc);
                             // Process the form data (e.g., submit to a server)
-                            print('Name: $_namePet');
-                            print('Email: $_race');
-                            print('Email: $_birthday');
+                            print('Name: ${_namePController.text}');
+                            print('Email: ${_raceController.text}');
+                            print('Data: ${dateinput.text}');
+                            print('Tipo: ${_tipoController.text}');
+                            Navigator.of(context).pop();
                           }
                         },
                         child: Text("Add a pet"),

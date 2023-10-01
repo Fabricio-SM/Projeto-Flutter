@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trabalho_pdm/widgets/pet_cache.dart';
 import '../widgets/Stats.dart';
 import '../widgets/card.dart';
 
@@ -38,39 +40,14 @@ class _PetsMenuState extends State<Home> {
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               Container(
-                margin: const EdgeInsets.only(bottom: 80, top: 30),
+                margin: const EdgeInsets.only(bottom: 50, top: 30),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(236, 247, 239, 239),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                  ],
+                  children: [],
                 ),
               ),
               Text(
@@ -87,23 +64,15 @@ class _PetsMenuState extends State<Home> {
                 child: Column(
                   children: [
                     Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          children: [
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                          ],
-                        )),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      child: Column(
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.only(bottom: 30),
+                              child: StatsCard()),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -111,23 +80,6 @@ class _PetsMenuState extends State<Home> {
           ),
         ),
       ),
-      // floatingActionButton: Container(
-      //   width: 70.0,
-      //   height: 70.0,
-      //   margin: const EdgeInsets.only(bottom: 20),
-      //   child: FloatingActionButton(
-      //     onPressed: () => Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => const PetPage()),
-      //     ),
-      //     tooltip: 'Add Pet',
-      //     child: Icon(
-      //       Icons.add,
-      //       size: 40.0,
-      //     ),
-      //   ),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
