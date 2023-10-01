@@ -58,13 +58,14 @@ class _PetsMenuState extends State<PetsMenu> {
                       ),
                       child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: cache.listPet.length,
+                        itemCount: cache.caoPets.length,
                         itemBuilder: (context, index) {
+                          final dogs = cache.caoPets;
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 30),
                             child: PetCard(
-                              cache.listPet[index].nome,
-                              pets: cache.listPet,
+                              dogs[index].nome,
+                              pets: dogs,
                               index: index,
                             ),
                           );
@@ -88,13 +89,14 @@ class _PetsMenuState extends State<PetsMenu> {
                       child: Column(children: [
                         ListView.builder(
                           shrinkWrap: true,
-                          itemCount: cache.listPet.length,
+                          itemCount: cache.gatoPets.length,
                           itemBuilder: (context, index) {
+                            final cats = cache.gatoPets;
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 30),
                               child: PetCard(
-                                cache.listPet[index].nome,
-                                pets: cache.listPet,
+                                cats[index].nome,
+                                pets: cats,
                                 index: index,
                               ),
                             );
