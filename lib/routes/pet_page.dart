@@ -33,31 +33,44 @@ class _MyPetPageState extends State<PetPage> {
   Widget build(BuildContext context) {
     return Consumer<PetCache>(
       builder: (context, cache, _) {
+        final mediaQuery = MediaQuery.sizeOf(context);
         return Scaffold(
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          ),
           backgroundColor: Color(0xFFF1F3F6),
           body: SingleChildScrollView(
             child: SafeArea(
               child: Form(
                 key: _formKey,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Column(
                     children: [
-                      SizedBox(height: 16),
-                      Text(
-                        "Add a pet",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: const [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 16),
+                              Text(
+                                "Add a pet",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 30,
                       ),
                       Container(
-                        width: 150,
-                        height: 150,
+                        width: mediaQuery.height / 8,
+                        height: mediaQuery.height / 8,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
@@ -74,35 +87,63 @@ class _MyPetPageState extends State<PetPage> {
                       Center(
                         child: Column(
                           children: [
-                            Text(
-                              "Type",
-                            ),
-                            Center(
-                              widthFactor: 2.0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      _tipoController.text = 'Cão';
-                                    },
-                                    child: Text("Dog"),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      _tipoController.text = 'Gato';
-                                    },
-                                    child: Text("Cat"),
-                                  ),
-                                ],
+                            Container(
+                              child: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 20),
+                                    Text(
+                                      "Type",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            _tipoController.text = 'Cão';
+                                          },
+                                          child: Text(
+                                            "Dog",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                        SizedBox(width: 40),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            _tipoController.text = 'Gato';
+                                          },
+                                          child: Text(
+                                            "Cat",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
+                      SizedBox(height: 40),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'Name'),
+                        decoration: InputDecoration(
+                          labelText: 'Name',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                                color:
+                                    const Color.fromARGB(255, 255, 255, 255)),
+                          ),
+                        ),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Please enter a name';
@@ -113,8 +154,19 @@ class _MyPetPageState extends State<PetPage> {
                           _namePController.text = value!;
                         },
                       ),
+                      SizedBox(height: 40),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'Race'),
+                        decoration: InputDecoration(
+                          labelText: 'Race',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                                color:
+                                    const Color.fromARGB(255, 255, 255, 255)),
+                          ),
+                        ),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Please enter an race';
@@ -125,6 +177,7 @@ class _MyPetPageState extends State<PetPage> {
                           _raceController.text = value!;
                         },
                       ),
+                      SizedBox(height: 40),
                       TextField(
                         controller:
                             dateinput, //editing controller of this TextField
@@ -160,8 +213,16 @@ class _MyPetPageState extends State<PetPage> {
                           }
                         },
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 40),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: Size(mediaQuery.width / 1.5, 50),
+                          elevation: 90,
+                          backgroundColor: Color.fromARGB(255, 72, 131, 221),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
@@ -179,7 +240,10 @@ class _MyPetPageState extends State<PetPage> {
                             Navigator.of(context).pop();
                           }
                         },
-                        child: Text("Add a pet"),
+                        child: Text(
+                          "Add a pet",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),

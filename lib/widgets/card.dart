@@ -20,6 +20,7 @@ class PetCard extends StatelessWidget {
       elevation: 60,
       child: Container(
         height: mediaQuery.height / 5,
+        width: mediaQuery.width / 2,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Color.fromARGB(0, 240, 213, 213),
@@ -34,7 +35,6 @@ class PetCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Color.fromARGB(0, 0, 0, 0),
-                  width: 30,
                 ),
                 image: DecorationImage(
                   image: AssetImage('img/a.jpg'),
@@ -53,7 +53,7 @@ class PetCard extends StatelessWidget {
                         pets[index].raca,
                         //"Raça Pet",
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: mediaQuery.width / 22,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold),
                       ),
@@ -61,7 +61,7 @@ class PetCard extends StatelessWidget {
                         pets[index].nome,
                         //"Nome Pet",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: mediaQuery.width / 15,
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold),
                       ),
@@ -69,7 +69,7 @@ class PetCard extends StatelessWidget {
                         pets[index].dataNasc,
                         //"Idade Pet",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: mediaQuery.width / 22,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold),
                       ),
@@ -82,7 +82,7 @@ class PetCard extends StatelessWidget {
                 child: Icon(
               Icons.arrow_right,
               color: Colors.black,
-              size: 100,
+              size: mediaQuery.width / 5,
             )),
           ],
         ),

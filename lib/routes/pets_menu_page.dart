@@ -18,7 +18,7 @@ class _PetsMenuState extends State<PetsMenu> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.sizeOf(context);
-    final margin = mediaQuery / 8;
+    final margin = mediaQuery / 16;
     return Consumer<PetCache>(
       builder: (context, cache, _) {
         return Scaffold(
@@ -38,7 +38,7 @@ class _PetsMenuState extends State<PetsMenu> {
                             Text(
                               "My pets",
                               style: TextStyle(
-                                  fontSize: 35,
+                                  fontSize: mediaQuery.width / 10,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'helvetica'),
                             ),
@@ -47,8 +47,9 @@ class _PetsMenuState extends State<PetsMenu> {
                     SizedBox(height: 20),
                     Text(
                       "Dogs",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: mediaQuery.width / 15,
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.start,
                     ),
                     Container(
@@ -77,7 +78,7 @@ class _PetsMenuState extends State<PetsMenu> {
                     Text(
                       "Cats",
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: mediaQuery.width / 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
