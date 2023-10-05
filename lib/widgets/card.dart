@@ -19,7 +19,7 @@ class PetCard extends StatelessWidget {
       ),
       elevation: 60,
       child: Container(
-        height: mediaQuery.height / 5,
+        height: mediaQuery.height / 7,
         width: mediaQuery.width / 2,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(

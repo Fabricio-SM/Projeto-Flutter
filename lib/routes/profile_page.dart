@@ -31,11 +31,7 @@ class _MyProfile extends State<MyProfile> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-<<<<<<< HEAD
                     const SizedBox(height: 20),
-=======
-                    SizedBox(height: 20),
->>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                     const Text(
                       "Profile",
                       style: TextStyle(
@@ -43,11 +39,7 @@ class _MyProfile extends State<MyProfile> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-<<<<<<< HEAD
                     const SizedBox(height: 20),
-=======
-                    SizedBox(height: 20),
->>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -73,24 +65,15 @@ class _MyProfile extends State<MyProfile> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-<<<<<<< HEAD
                             const Text(
                               "Bordeaux, France",
                               style:
                                   TextStyle(fontSize: 16, color: Colors.grey),
-=======
-                            Text(
-                              cache.listPerfil[0].email,
-                              style: const TextStyle(
-                                fontSize: 16,
-                              ),
->>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                             ),
                             const SizedBox(height: 10),
                             Text(
                               cache.listPerfil[0].nome,
                               style: const TextStyle(
-<<<<<<< HEAD
                                   fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 10),
@@ -98,22 +81,10 @@ class _MyProfile extends State<MyProfile> {
                               "19 Friends",
                               style:
                                   TextStyle(fontSize: 16, color: Colors.grey),
-=======
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              cache.listPerfil[0].password,
-                              style: const TextStyle(
-                                fontSize: 16,
-                              ),
->>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                             ),
                           ],
                         ),
                       ],
-<<<<<<< HEAD
                     ),
                     const SizedBox(height: 20),
                     const SizedBox(height: 20),
@@ -164,8 +135,6 @@ class _MyProfile extends State<MyProfile> {
                           ),
                         );
                       },
-=======
->>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                     ),
                     const SizedBox(height: 20),
                     SizedBox(height: 20),
