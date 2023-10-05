@@ -10,6 +10,7 @@ class TabsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.sizeOf(context);
     return DefaultTabController(
       length: 3, // Este é o número de guias (tabs).
       child: Scaffold(
@@ -21,7 +22,7 @@ class TabsPage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: Container(
-          height: 55,
+          height: mediaQuery.height / 12,
           decoration: const BoxDecoration(
             color: Color.fromARGB(151, 121, 184, 126),
           ),

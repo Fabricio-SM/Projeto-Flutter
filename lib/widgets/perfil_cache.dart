@@ -8,7 +8,7 @@ class Cache extends ChangeNotifier {
   var _index = -1;
 
   final List<Pessoa> _login = [
-    const Pessoa("nome", "email", "senha"),
+    // const Pessoa("nome", "email", "senha"),
   ];
 
   // Adiciona novos items na lista

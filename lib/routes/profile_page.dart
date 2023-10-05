@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trabalho_pdm/routes/tabs_page.dart';
@@ -21,97 +19,81 @@ class _MyProfile extends State<MyProfile> {
     return Consumer<Cache>(
       builder: (context, cache, _) {
         return Scaffold(
-          backgroundColor: Color(0xFFF1F3F6),
+          backgroundColor: const Color(0xFFF1F3F6),
           body: SingleChildScrollView(
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Profile",
-                      textAlign: TextAlign.left,
+                    const Text(
+                      "Account",
                       style: TextStyle(
-                        fontSize: 35,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 16),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 2,
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'img/perfil.jpg',
-                          ),
-                        ),
+                    SizedBox(height: 20),
+                    const Text(
+                      "Profile",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextFormField(
-                      initialValue: cache.listPerfil[0].nome,
-                      decoration: InputDecoration(labelText: 'Full name'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _name = value!;
-                      },
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
+                            ),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                'img/perfil.jpg',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                            width: 40), // Espaço entre a imagem e o texto
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              cache.listPerfil[0].email,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              cache.listPerfil[0].nome,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              cache.listPerfil[0].password,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    TextFormField(
-                      initialValue: cache.listPerfil[0].email,
-                      decoration: InputDecoration(labelText: 'Email address'),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter an email address';
-                        }
-                        // Add more email validation logic if needed
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _email = value!;
-                      },
-                    ),
-                    TextFormField(
-                      initialValue: cache.listPerfil[0].password,
-                      decoration: InputDecoration(labelText: 'Password'),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter an valid password';
-                        }
-                        // Add more password validation logic if needed
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _passwd = value!;
-                      },
-                    ),
-                    SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          // Process the form data (e.g., submit to a server)
-                        }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TabsPage()),
-                        );
-                      },
-                      child: Text('Edit'),
-                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -122,5 +104,3 @@ class _MyProfile extends State<MyProfile> {
     );
   }
 }
-
-
