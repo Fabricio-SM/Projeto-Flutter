@@ -218,7 +218,11 @@ class _MyPetPageState extends State<PetPage> {
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(mediaQuery.width / 1.5, 50),
                           elevation: 90,
+<<<<<<< HEAD
                           backgroundColor: Color.fromARGB(255, 72, 131, 221),
+=======
+                          backgroundColor: Color.fromARGB(255, 116, 129, 252),
+>>>>>>> 52b71ca45524f5410003349502d991343e96bc29
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
