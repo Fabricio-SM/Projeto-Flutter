@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/routes/login_page.dart';
 import 'package:trabalho_pdm/routes/pet_page.dart';
 import 'package:trabalho_pdm/routes/tabs_page.dart';
+import 'package:trabalho_pdm/routes/login_page.dart';
 
 class RouteGenerator {
   static const String homePage = '/login_page.dart';
@@ -12,7 +12,7 @@ class RouteGenerator {
     switch (settings.name) {
       case homePage:
         return MaterialPageRoute(
-          builder: (_) => const Home(),
+          builder: (_) => FormLogin(),
         );
       case tabsPage:
         return MaterialPageRoute(

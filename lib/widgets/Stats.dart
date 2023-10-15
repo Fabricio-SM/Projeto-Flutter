@@ -1,20 +1,21 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:trabalho_pdm/styles.dart';
 
 class StatsCard extends StatelessWidget {
   const StatsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.sizeOf(context);
     return Material(
       borderRadius: const BorderRadius.all(
         Radius.circular(20),
       ),
       elevation: 60,
       child: Container(
-        height: 250,
+        height: mediaQuery.height / 5,
+        width: mediaQuery.width / 1.1,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Color.fromARGB(0, 240, 213, 213),
@@ -23,7 +24,6 @@ class StatsCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              margin: EdgeInsets.only(right: 200),
               child: Row(
                 children: const [
                   Column(
@@ -33,14 +33,14 @@ class StatsCard extends StatelessWidget {
                       Text(
                         "Today's plan",
                         style: TextStyle(
-                            fontSize: 40,
+                            fontSize: 30,
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "10% acomplished",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold),
                       ),
@@ -51,7 +51,7 @@ class StatsCard extends StatelessWidget {
             ),
             SizedBox(
                 child: Icon(
-              Icons.fiber_pin_rounded,
+              Icons.hourglass_bottom,
               color: Colors.black,
               size: 100,
             )),

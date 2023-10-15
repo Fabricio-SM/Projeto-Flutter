@@ -1,133 +1,206 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_print, library_private_types_in_public_api, prefer_const_literals_to_create_immutables
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
-import '../widgets/Card/Stats.dart';
-import '../widgets/Card/card.dart';
+import 'package:provider/provider.dart';
+import 'package:trabalho_pdm/widgets/perfil_cache.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key});
+import '../routes.dart';
 
+class FormLogin extends StatefulWidget {
   @override
-  State<Home> createState() => _PetsMenuState();
+  _FormLoginState createState() => _FormLoginState();
 }
 
-class _PetsMenuState extends State<Home> {
+class _FormLoginState extends State<FormLogin> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwdController = TextEditingController();
+  String _name = '';
+  String _email = '';
+  String _passwd = '';
+
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 233, 242, 248),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 60, bottom: 20),
-                child: Text(
-                  "Home",
-                  style: TextStyle(
-                    fontSize: 45,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'helvetica',
+      backgroundColor: Color(0xFFF1F3F6),
+      body: Consumer<Cache>(
+        builder: (context, cache, _) {
+          return SingleChildScrollView(
+            child: SafeArea(
+              child: Form(
+                key: _formKey,
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "New user",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "Account creation",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: mediaQuery.height / 25,
+                      ),
+                      Container(
+                        height: mediaQuery.height / 8,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'img/perfil.jpg',
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: mediaQuery.height / 25,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 40),
+                        child: TextFormField(
+                          controller: _nameController,
+                          decoration: InputDecoration(
+                            labelText: 'Full name',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _name = value!;
+                          },
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 40),
+                        child: TextFormField(
+                          controller: _emailController,
+                          decoration: InputDecoration(
+                            labelText: 'Email address',
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(color: Colors.black),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter an email address';
+                            }
+
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _email = value!;
+                          },
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 40),
+                        child: TextFormField(
+                          controller: _passwdController,
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255)),
+                            ),
+                          ),
+                          obscureText: true,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a valid password';
+                            }
+
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _passwd = value!;
+                          },
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: Size(mediaQuery.width / 1.5, 50),
+                              elevation: 90,
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                _formKey.currentState!.save();
+                                final name = _nameController.text;
+                                final email = _emailController.text;
+                                final senha = _passwdController.text;
+
+                                cache.addItem(name, email, senha);
+
+                                print('Name: $_name');
+                                print('Email: $_email');
+                                print('Email: $_passwd');
+                              }
+                              Navigator.of(context)
+                                  .pushNamed(RouteGenerator.tabsPage);
+                            },
+                            child: Text('Create my account'),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            "You have a account? Login",
+                            style: TextStyle(color: Colors.blue),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),
-              Text(
-                "Dashboard",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 80, top: 30),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(236, 247, 239, 239),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 30),
-                      child: PetCard(),
-                    ),
-                  ],
-                ),
-              ),
-              Text(
-                "Stats",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 20, top: 10),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(236, 247, 239, 239),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          children: [
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                            Container(
-                                margin: const EdgeInsets.only(bottom: 30),
-                                child: StatsCard()),
-                          ],
-                        )),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
-      // floatingActionButton: Container(
-      //   width: 70.0,
-      //   height: 70.0,
-      //   margin: const EdgeInsets.only(bottom: 20),
-      //   child: FloatingActionButton(
-      //     onPressed: () => Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => const PetPage()),
-      //     ),
-      //     tooltip: 'Add Pet',
-      //     child: Icon(
-      //       Icons.add,
-      //       size: 40.0,
-      //     ),
-      //   ),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
